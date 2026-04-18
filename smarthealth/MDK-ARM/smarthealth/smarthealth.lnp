@@ -44,6 +44,8 @@
 "smarthealth\bsp_sht30.o"
 "smarthealth\bsp_usart.o"
 "smarthealth\bsp_usart2.o"
+"smarthealth\segger_rtt.o"
+"smarthealth\segger_rtt_printf.o"
 --strict --scatter "smarthealth\smarthealth.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

@@ -3,9 +3,9 @@
   * @file    bsp_ble.c
   * @brief   BLE 蓝牙模块驱动实现
   *
-  * @note    功能说明：
-  *            - GPIO 控制（PA4 WUP / PA5 RELOAD / PA1 STA）
-  *            - 健康数据 JSON/十六进制帧打包
+ * @note    功能说明：
+ *            - GPIO 控制（PA5 WUP / PA4 STA，RELOAD 已禁用）
+ *            - 健康数据 JSON/十六进制帧打包
   *
   *          数据发送说明：
   *            - 实际串口发送由 Core 层的 usart2 DMA + 空闲中断实现
@@ -27,13 +27,13 @@
  *============================================================================*/
 
 /**
- * @brief  初始化 BLE GPIO
+ * @brief  初始化 BLE GPIO（PA5 WUP / PA4 STA）
  */
 void BSP_BLE_Init(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-    /* PA4 WUP - 推挽输出，默认高电平（正常工作） */
+    /* PA5 WUP - 推挽输出，默认高电平（正常工作） */
     GPIO_InitStruct.Pin   = BLE_WUP_PIN;
     GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull  = GPIO_NOPULL;
@@ -41,19 +41,20 @@ void BSP_BLE_Init(void)
     HAL_GPIO_Init(BLE_WUP_PORT, &GPIO_InitStruct);
     HAL_GPIO_WritePin(BLE_WUP_PORT, BLE_WUP_PIN, GPIO_PIN_SET);   /* 默认唤醒 */
 
-    /* PA5 RELOAD - 推挽输出，默认高电平 */
-    GPIO_InitStruct.Pin   = BLE_RELOAD_PIN;
-    GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
-    GPIO_InitStruct.Pull  = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(BLE_RELOAD_PORT, &GPIO_InitStruct);
-    HAL_GPIO_WritePin(BLE_RELOAD_PORT, BLE_RELOAD_PIN, GPIO_PIN_SET);
-
-    /* PA1 STA - 浮空输入，检测连接状态 */
+    /* PA4 STA - 浮空输入，检测连接状态 */
     GPIO_InitStruct.Pin  = BLE_STA_PIN;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(BLE_STA_PORT, &GPIO_InitStruct);
+
+    /* [已禁用] PA1 RELOAD - 暂时注释掉初始化
+     * GPIO_InitStruct.Pin   = BLE_RELOAD_PIN;
+     * GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
+     * GPIO_InitStruct.Pull  = GPIO_NOPULL;
+     * GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+     * HAL_GPIO_Init(BLE_RELOAD_PORT, &GPIO_InitStruct);
+     * HAL_GPIO_WritePin(BLE_RELOAD_PORT, BLE_RELOAD_PIN, GPIO_PIN_SET);
+     */
 }
 
 void BSP_BLE_Wakeup(void)
@@ -66,12 +67,14 @@ void BSP_BLE_Sleep(void)
     HAL_GPIO_WritePin(BLE_WUP_PORT, BLE_WUP_PIN, GPIO_PIN_RESET);
 }
 
+/* [已禁用] RELOAD 引脚相关函数 - 暂时注释掉
 void BSP_BLE_ResetToFactory(void)
 {
     HAL_GPIO_WritePin(BLE_RELOAD_PORT, BLE_RELOAD_PIN, GPIO_PIN_RESET);
-    HAL_Delay(700);   /* 保持低电平 > 500ms */
+    HAL_Delay(700);   // 保持低电平 > 500ms
     HAL_GPIO_WritePin(BLE_RELOAD_PORT, BLE_RELOAD_PIN, GPIO_PIN_SET);
 }
+*/
 
 bool BSP_BLE_IsConnected(void)
 {

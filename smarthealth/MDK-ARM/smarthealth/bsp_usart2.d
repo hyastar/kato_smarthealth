@@ -1,9 +1,9 @@
 smarthealth\bsp_usart2.o: ..\BSP\Src\bsp_usart2.c
 smarthealth\bsp_usart2.o: ..\BSP\Inc\bsp_usart2.h
-smarthealth\bsp_usart2.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-smarthealth\bsp_usart2.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+smarthealth\bsp_usart2.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdint.h
+smarthealth\bsp_usart2.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdbool.h
 smarthealth\bsp_usart2.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-smarthealth\bsp_usart2.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+smarthealth\bsp_usart2.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stddef.h
 smarthealth\bsp_usart2.o: ../Core/Inc/FreeRTOSConfig.h
 smarthealth\bsp_usart2.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 smarthealth\bsp_usart2.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -48,4 +48,4 @@ smarthealth\bsp_usart2.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_
 smarthealth\bsp_usart2.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 smarthealth\bsp_usart2.o: ../Core/Inc/SensorData.h
 smarthealth\bsp_usart2.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-smarthealth\bsp_usart2.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+smarthealth\bsp_usart2.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\string.h

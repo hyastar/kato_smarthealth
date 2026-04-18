@@ -1,8 +1,8 @@
 smarthealth\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/timers.c
-smarthealth\timers.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+smarthealth\timers.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdlib.h
 smarthealth\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-smarthealth\timers.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-smarthealth\timers.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+smarthealth\timers.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stddef.h
+smarthealth\timers.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdint.h
 smarthealth\timers.o: ../Core/Inc/FreeRTOSConfig.h
 smarthealth\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 smarthealth\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

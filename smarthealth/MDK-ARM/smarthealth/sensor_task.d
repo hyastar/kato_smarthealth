@@ -1,11 +1,11 @@
 smarthealth\sensor_task.o: ..\algorithm\Src\sensor_task.c
 smarthealth\sensor_task.o: ..\algorithm\Inc\sensor_task.h
-smarthealth\sensor_task.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-smarthealth\sensor_task.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+smarthealth\sensor_task.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdint.h
+smarthealth\sensor_task.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdbool.h
 smarthealth\sensor_task.o: ../Core/Inc/SensorData.h
 smarthealth\sensor_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 smarthealth\sensor_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-smarthealth\sensor_task.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+smarthealth\sensor_task.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stddef.h
 smarthealth\sensor_task.o: ../Core/Inc/FreeRTOSConfig.h
 smarthealth\sensor_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 smarthealth\sensor_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -48,5 +48,5 @@ smarthealth\sensor_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim
 smarthealth\sensor_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 smarthealth\sensor_task.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 smarthealth\sensor_task.o: ..\BSP\Inc\bsp_max30102.h
-smarthealth\sensor_task.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-smarthealth\sensor_task.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+smarthealth\sensor_task.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\string.h
+smarthealth\sensor_task.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\math.h

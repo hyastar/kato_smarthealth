@@ -7,7 +7,7 @@ smarthealth\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 smarthealth\main.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 smarthealth\main.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h
 smarthealth\main.o: ../Drivers/CMSIS/Include/core_cm4.h
-smarthealth\main.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+smarthealth\main.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdint.h
 smarthealth\main.o: ../Drivers/CMSIS/Include/cmsis_version.h
 smarthealth\main.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 smarthealth\main.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -15,7 +15,7 @@ smarthealth\main.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 smarthealth\main.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 smarthealth\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 smarthealth\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-smarthealth\main.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+smarthealth\main.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stddef.h
 smarthealth\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 smarthealth\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 smarthealth\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
@@ -33,7 +33,7 @@ smarthealth\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 smarthealth\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 smarthealth\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 smarthealth\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-smarthealth\main.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+smarthealth\main.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdbool.h
 smarthealth\main.o: ../Core/Inc/SensorData.h
 smarthealth\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 smarthealth\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h

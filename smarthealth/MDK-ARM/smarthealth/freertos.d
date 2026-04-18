@@ -1,7 +1,7 @@
 smarthealth\freertos.o: ../Core/Src/freertos.c
 smarthealth\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-smarthealth\freertos.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-smarthealth\freertos.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+smarthealth\freertos.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stddef.h
+smarthealth\freertos.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdint.h
 smarthealth\freertos.o: ../Core/Inc/FreeRTOSConfig.h
 smarthealth\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 smarthealth\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -42,7 +42,7 @@ smarthealth\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex
 smarthealth\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 smarthealth\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 smarthealth\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-smarthealth\freertos.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+smarthealth\freertos.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdbool.h
 smarthealth\freertos.o: ../Core/Inc/SensorData.h
 smarthealth\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 smarthealth\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h

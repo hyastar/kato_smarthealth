@@ -749,9 +749,9 @@ interwork --depend=smarthealth\startup_stm32f411xe.d -osmarthealth\startup_stm3
 e -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/T
 hird_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I../Drivers/CMSIS/Device/ST/
 STM32F4xx/Include -I../Drivers/CMSIS/Include -I.\RTE\_smarthealth -I"D:\Program
- Files\Keil_v5_Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include" --predefine="__UVISION
-_VERSION SETA 536" --predefine="_RTE_ SETA 1" --predefine="STM32F411xE SETA 1" 
---predefine="_RTE_ SETA 1" --list=startup_stm32f411xe.lst startup_stm32f411xe.s
+ Files\MDK\MDK-ARM\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include" --predefine="__UVI
+SION_VERSION SETA 543" --predefine="STM32F411xE SETA 1" --predefine="_RTE_ SETA
+ 1" --list=startup_stm32f411xe.lst startup_stm32f411xe.s
 
 
 

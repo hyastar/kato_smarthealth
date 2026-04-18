@@ -1,8 +1,8 @@
 smarthealth\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
-smarthealth\stream_buffer.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-smarthealth\stream_buffer.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+smarthealth\stream_buffer.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdint.h
+smarthealth\stream_buffer.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\string.h
 smarthealth\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-smarthealth\stream_buffer.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+smarthealth\stream_buffer.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stddef.h
 smarthealth\stream_buffer.o: ../Core/Inc/FreeRTOSConfig.h
 smarthealth\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 smarthealth\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

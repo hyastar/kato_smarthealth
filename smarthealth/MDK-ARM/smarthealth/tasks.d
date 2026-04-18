@@ -1,9 +1,9 @@
 smarthealth\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/tasks.c
-smarthealth\tasks.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-smarthealth\tasks.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+smarthealth\tasks.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdlib.h
+smarthealth\tasks.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\string.h
 smarthealth\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-smarthealth\tasks.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-smarthealth\tasks.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+smarthealth\tasks.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stddef.h
+smarthealth\tasks.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdint.h
 smarthealth\tasks.o: ../Core/Inc/FreeRTOSConfig.h
 smarthealth\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 smarthealth\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

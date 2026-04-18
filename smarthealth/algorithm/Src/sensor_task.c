@@ -209,6 +209,7 @@ static HAL_StatusTypeDef read_max30102(MAX30102_Data_t *data)
 
 /*============================================================================
  * 传感器初始化（带互斥锁）
+ * @note    [已简化] 仅初始化 SHT30，MAX30102 已禁用
  *============================================================================*/
 static HAL_StatusTypeDef init_sensors(void)
 {
@@ -219,9 +220,11 @@ static HAL_StatusTypeDef init_sensors(void)
         if (BSP_SHT30_Init() != HAL_OK) {
             ret = HAL_ERROR;
         }
-        if (BSP_MAX30102_Init() != HAL_OK) {
-            ret = HAL_ERROR;
-        }
+        /* [已禁用] MAX30102 初始化
+         * if (BSP_MAX30102_Init() != HAL_OK) {
+         *     ret = HAL_ERROR;
+         * }
+         */
         osMutexRelease(I2C1_MutexHandle);
     }
     return ret;
@@ -229,22 +232,21 @@ static HAL_StatusTypeDef init_sensors(void)
 
 /*============================================================================
  * SensorTask_Entry - 主任务入口
+ * @note    [已简化] 仅读取 SHT30 心率/血氧已禁用（固定为0）
  *============================================================================*/
 void SensorTask_Entry(void *argument)
 {
     (void)argument;
 
     TickType_t last_wake = xTaskGetTickCount();
-    uint8_t    sample_cnt = 0;
-    uint8_t    hr_value = 0, spo2_value = 0;
     float      temperature = 25.0f, humidity = 60.0f;
     float      last_temp = 25.0f, last_hum = 60.0f;
     uint8_t    th_update_cntdown = 20;  /* 前2秒先读一次温湿度 */
-    uint8_t    spo2_update_cntdown = 0;
 
-    /* 初始化滤波器和心率检测器 */
-    Filter_Init(&g_filter);
-    HR_Init(&g_hr);
+    /* [已禁用] MAX30102 滤波器和心率检测器初始化
+     * Filter_Init(&g_filter);
+     * HR_Init(&g_hr);
+     */
 
     /* 初始化传感器 */
     if (init_sensors() != HAL_OK) {
@@ -274,42 +276,10 @@ void SensorTask_Entry(void *argument)
         }
         th_update_cntdown--;
 
-        /* ── 读取 MAX30102 FIFO 数据 ── */
-        MAX30102_Data_t raw;
-        if (read_max30102(&raw) != HAL_OK) {
-            continue;   /* I2C 错误，本次跳过 */
-        }
-
-        /* 丢弃无效数据（DC值过低表示传感器未对准） */
-        if (raw.ir < 50000 || raw.red < 50000) {
-            continue;
-        }
-
-        /* ── 滑动平均滤波 ── */
-        Filter_AddSample(&g_filter, raw.ir, raw.red);
-
-        /* 窗口未满时等待 */
-        if (g_filter.count < MAX30102_FILTER_SIZE)
-            continue;
-
-        /* ── 心率计算（每5个样本一次）── */
-        if (sample_cnt % HR_UPDATE_INTERVAL == 0) {
-            hr_value = HR_Update(&g_hr, raw.ir, 0);
-        }
-
-        /* ── 血氧计算（每10个样本一次）── */
-        if (spo2_update_cntdown == 0) {
-            spo2_value = calculate_SpO2(
-                g_filter.ir_ac,  g_filter.ir_dc,
-                g_filter.red_ac, g_filter.red_dc);
-            spo2_update_cntdown = SPO2_UPDATE_INTERVAL;
-        }
-        spo2_update_cntdown--;
-
-        /* ── 打包并发送 ── */
+        /* ── 打包并发送（心率/血氧固定为0）── */
         SensorData_t data;
-        data.heart_rate  = hr_value;
-        data.spo2        = spo2_value;
+        data.heart_rate  = 0;   /* [已禁用] MAX30102 心率 */
+        data.spo2        = 0;   /* [已禁用] MAX30102 血氧 */
         data.temperature = temperature;
         data.humidity    = humidity;
 
@@ -319,10 +289,40 @@ void SensorTask_Entry(void *argument)
         /* 更新全局最新数据 */
         g_latest_data = data;
         g_data_valid  = true;
-
-        sample_cnt++;
     }
 }
+
+/* [已禁用] 以下函数暂时保留但不被调用，如需恢复 MAX30102 请取消注释
+ *
+ * ── MAX30102 读取 ──
+static HAL_StatusTypeDef read_max30102(MAX30102_Data_t *data)
+{
+    HAL_StatusTypeDef ret = HAL_ERROR;
+    if (osMutexAcquire(I2C1_MutexHandle, osWaitForever) == osOK) {
+        ret = BSP_MAX30102_ReadFIFO(data);
+        osMutexRelease(I2C1_MutexHandle);
+    }
+    return ret;
+}
+ *
+ * ── 滑动平均滤波 ──
+static void Filter_AddSample(MovingAverageFilter_t *f, uint32_t ir, uint32_t red)
+{
+    ...
+}
+ *
+ * ── 血氧计算 ──
+static uint8_t calculate_SpO2(float ir_ac, float ir_dc, float red_ac, float red_dc)
+{
+    ...
+}
+ *
+ * ── 心率更新 ──
+static uint8_t HR_Update(HRDetector_t *d, uint32_t ir_value, uint8_t sample_idx)
+{
+    ...
+}
+ */
 
 /*============================================================================
  * 获取最新传感器数据

@@ -1,8 +1,8 @@
 smarthealth\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
-smarthealth\heap_4.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+smarthealth\heap_4.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdlib.h
 smarthealth\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-smarthealth\heap_4.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-smarthealth\heap_4.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+smarthealth\heap_4.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stddef.h
+smarthealth\heap_4.o: D:\Program Files\MDK\MDK-ARM\Keil_v5\ARM\ARMCC506\Bin\..\include\stdint.h
 smarthealth\heap_4.o: ../Core/Inc/FreeRTOSConfig.h
 smarthealth\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 smarthealth\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

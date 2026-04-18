@@ -140,7 +140,9 @@ void MX_FREERTOS_Init(void) {
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of MonitorTask */
-  MonitorTaskHandle = osThreadNew(StartTask02_Monitor, NULL, &MonitorTask_attributes);
+  /* [已禁用] MonitorTask - 暂时注释掉，避免因未连接心率传感器导致误报警
+   * MonitorTaskHandle = osThreadNew(StartTask02_Monitor, NULL, &MonitorTask_attributes);
+   */
 
   /* creation of SensorTask */
   SensorTaskHandle = osThreadNew(StartTask03_Sensor, NULL, &SensorTask_attributes);
@@ -178,30 +180,33 @@ void StartDefaultTask(void *argument)
 
 /* USER CODE BEGIN Header_StartTask02 */
 /**
-  * @brief  MonitorTask - 监控异常并触发蜂鸣器报警
-  * @param  argument: Not used
-  * @retval None
-  *
-  * 逻辑说明：
-  *   - 阻塞等待 SensorDataQueue 数据
-  *   - 若心率或血氧异常，拉高 PB0 触发蜂鸣器
-  *   - 报警持续 BLE_ALERT_BUZZER_TIMEOUT_MS 后自动关闭
-  */
+ * @brief  MonitorTask - 监控异常并触发蜂鸣器报警
+ * @param  argument: Not used
+ * @retval None
+ *
+ * 逻辑说明：
+ *   - [已禁用] 此任务已被休眠，不再运行
+ *   - 原逻辑：阻塞等待 SensorDataQueue 数据，若心率或血氧异常，拉高 PB0 触发蜂鸣器
+ *   - 如需恢复，请删除 vTaskSuspend(NULL);
+ */
 /* USER CODE END Header_StartTask02 */
 void StartTask02_Monitor(void *argument)
 {
   /* USER CODE BEGIN StartTask02 */
   (void)argument;
+
+  /* 任务创建后立即休眠，不再运行 */
+  vTaskSuspend(NULL);
+
+  /* 以下为原逻辑（已禁用）：
   SensorData_t data;
   TickType_t buzz_end_tick = 0;
 
   for(;;)
   {
-    /* 阻塞等待传感器数据，2秒超时 */
     if (osMessageQueueGet(SensorDataQueueHandle, &data, NULL,
                            pdMS_TO_TICKS(2000)) == osOK)
     {
-      /* 判断是否需要报警 */
       if (SensorData_IsAlert(&data))
       {
         HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
@@ -210,13 +215,13 @@ void StartTask02_Monitor(void *argument)
       }
     }
 
-    /* 检查是否需要关闭蜂鸣器 */
     if (buzz_end_tick > 0 && xTaskGetTickCount() >= buzz_end_tick)
     {
       HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
       buzz_end_tick = 0;
     }
   }
+  */
   /* USER CODE END StartTask02 */
 }
 

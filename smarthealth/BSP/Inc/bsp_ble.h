@@ -3,11 +3,11 @@
   * @file    bsp_ble.h
   * @brief   BLE 蓝牙模块驱动
   *
-  * @note    硬件连接：
-  *            BLE WUP    → PA4 (GPIO输出，正常工作时拉高)
-  *            BLE RELOAD → PA5 (GPIO输出，低脉冲>500ms恢复出厂)
-  *            BLE STA    → PA1 (GPIO输入，检测连接状态)
-  *            BLE TX/RX  → USART2 (PA2/PA3)
+ * @note    硬件连接：
+ *            BLE WUP    → PA5 (GPIO输出，正常工作时拉高)
+ *            BLE STA    → PA4 (GPIO输入，检测连接状态)
+ *            BLE TX/RX  → USART2 (PA2/PA3)
+ *            BLE RELOAD → 已禁用（注释）
   *
   *          驱动说明：
   *            - PA4/PA5 控制蓝牙模块的唤醒和恢复出厂设置
@@ -32,21 +32,24 @@ extern "C" {
 #include "SensorData.h"    /* 统一数据结构：心率/血氧/温湿度 */
 
 /*============================================================================
- * BLE GPIO 控制宏
+ * BLE GPIO 控制宏（引脚已根据 Pin.md 适配）
  *============================================================================*/
 #define BLE_WUP_PORT      GPIOA
-#define BLE_WUP_PIN       GPIO_PIN_4
-#define BLE_RELOAD_PORT   GPIOA
-#define BLE_RELOAD_PIN    GPIO_PIN_5
+#define BLE_WUP_PIN       GPIO_PIN_5   /* PA5 - 唤醒引脚 */
 #define BLE_STA_PORT      GPIOA
-#define BLE_STA_PIN       GPIO_PIN_1
+#define BLE_STA_PIN       GPIO_PIN_4   /* PA4 - 连接状态检测 */
+
+/* [已禁用] BLE RELOAD 引脚 - 暂时注释掉相关定义
+ * #define BLE_RELOAD_PORT   GPIOA
+ * #define BLE_RELOAD_PIN    GPIO_PIN_1
+ */
 
 /*============================================================================
  * 函数声明
  *============================================================================*/
 
 /**
- * @brief  初始化 BLE 控制 GPIO（PA4/PA5/PA1）
+ * @brief  初始化 BLE 控制 GPIO（PA5 WUP / PA4 STA）
  * @note   在 MX_GPIO_Init() 之后调用
  */
 void BSP_BLE_Init(void);
@@ -64,8 +67,9 @@ void BSP_BLE_Sleep(void);
 /**
  * @brief  恢复出厂设置（RELOAD 低脉冲 600ms）
  * @note   调用后会阻塞 700ms
+ * @note   [已禁用] 此功能暂时注释，如需恢复请取消注释
  */
-void BSP_BLE_ResetToFactory(void);
+/* void BSP_BLE_ResetToFactory(void); */
 
 /**
  * @brief  获取 BLE 连接状态
